@@ -18,7 +18,7 @@ public class Graph {
 		this(in.readInt());		//读取V并初始化图
 		int E=in.readInt();		//读取E
 		for(int i=0;i<E;i++) {
-			//添加一条边
+			//娣诲姞涓�鏉¤竟
 			int v=in.readInt();	//读取一个顶点
 			int w=in.readInt();	//读取另一个顶点
 			addEdge(v,w);		//添加一条连接它们的边
