@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 //使用深度优先搜索标记与起点连通的所有顶点所需的时间与顶点的度数之和成正比
-public class DepthFirstSearch{
+public class DepthFirstSearch {
 	private boolean[] marked;
 	private int count;
 
