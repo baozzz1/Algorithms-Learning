@@ -2,6 +2,7 @@ package Exercise4_1;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -27,13 +28,13 @@ public class Graph {
 	// Exercise 4.1.15
 	public Graph(In in) {
 		this(in.readInt()); // 读取V并初始化图
-		this.E = in.readInt(); // 读取E
-		Stack<String> reverse = new Stack<String>();
+		//this.E = in.readInt(); // 读取E
+		Queue<String> reverse = new Queue<String>();
 		while (!in.isEmpty()) {
 			String[] line = in.readLine().split(" ");
 			String v = line[0];
 			for (int i = 1; i < line.length; i++)
-				reverse.push(v + " " + line[i]);
+				reverse.enqueue(v + " " + line[i]);
 		}
 		for (String edge : reverse) {
 			int v = Integer.parseInt(edge.split(" ")[0]);
