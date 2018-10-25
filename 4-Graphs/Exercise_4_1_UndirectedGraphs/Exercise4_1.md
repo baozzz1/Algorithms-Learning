@@ -29,7 +29,7 @@ public Graph(Graph G) {
 	}
 }
 ```
-click [Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java) to get the better one.
+click [Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Graph.java) to get the better one.
 ```Java
 //better one
 public Graph(Graph G) {
@@ -45,7 +45,7 @@ public Graph(Graph G) {
 }
 ```
 ### 4.1.4
-[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Graph.java)
 ```Java
 public boolean hasEdge(int v,int w) {
 	Bag<Integer> adj_v = (Bag<Integer>) this.adj(v);
@@ -57,7 +57,7 @@ public boolean hasEdge(int v,int w) {
 }
 ```
 ### 4.1.5
-[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Graph.java)
 ```Java
 // Exercise 4.1.5
 public void addEdge(int v,int w) {
@@ -75,7 +75,7 @@ public void addEdge(int v,int w) {
 }
 ```
 ### 4.1.7
-[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Graph.java)
 ```Java
 public static void main(String[] args) {
 	In in = new In(args[0]);
@@ -85,7 +85,7 @@ public static void main(String[] args) {
 }
 ```
 ### 4.1.10
-[DepthFirstSearch.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/DepthFirstSearch.java)
+[DepthFirstSearch.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DepthFirstSearch.java)
 ```Java
 private void dfs(Graph G, int v) {
 	marked[v] = true;
@@ -101,7 +101,7 @@ private void dfs(Graph G, int v) {
 }
 ```
 ### 4.1.13
-[BreadthFirstPaths.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/BreadthFirstPaths.java)
+[BreadthFirstPaths.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/BreadthFirstPaths.java)
 ```Java
 public int distTo(Graph G, int target) {
 	return distTo[target];
@@ -127,7 +127,7 @@ private void bfs(Graph G, int s) {
 }
 ```
 ### 4.1.15
-[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Graph.java)
 ```Java
 public Graph(In in) {
 	this(in.readInt()); // 读取V并初始化图
@@ -147,7 +147,21 @@ public Graph(In in) {
 }
 ```
 ### 4.1.16
-[GraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/GraphProperties.java)
+[GraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/GraphProperties.java)
 ### 4.1.22
-[BaconHistogram.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/BaconHistogram.java)
+[BaconHistogram.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/BaconHistogram.java)
+### 4.1.23
+I cannot solve it,because the StackOverflowError when running the CC class.
+[MoviesGraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/MoviesGraphProperties.java)
+### 4.1.24
+[DegreeOfSeparation.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparation.java)
+```Java
+String name = sg.name(v);
+if(name.contains("\\(") && name.contains("\\)")) {
+	String year = name.split("\\(")[1].split("\\)")[0];
+	if (Integer.parseInt(year) < y)
+		continue;
+}					
+StdOut.println(" " + name);
+```
 

@@ -1,4 +1,4 @@
-package Lesson4_1_UndirectedGraphs;
+package Lesson_4_1_UndirectedGraphs;
 
 public class TwoColor {
 	private boolean[] marked; // marked[v] = has vertex v been marked?

@@ -1,4 +1,4 @@
-package Exercise4_1;
+package Exercise_4_1_UndirectedGraphs;
 
 public class Cycle {
 	private boolean[] marked; // marked[v] = has vertex v been marked?

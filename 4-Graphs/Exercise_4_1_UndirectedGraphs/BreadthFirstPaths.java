@@ -1,4 +1,4 @@
-package Exercise4_1;
+package Exercise_4_1_UndirectedGraphs;
 
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;

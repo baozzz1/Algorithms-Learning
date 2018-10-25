@@ -1,4 +1,4 @@
-package Lesson4_1_UndirectedGraphs;
+package Lesson_4_1_UndirectedGraphs;
 
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;

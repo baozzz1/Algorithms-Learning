@@ -1,5 +1,5 @@
 // Exercise 4.1.16
-package Exercise4_1;
+package Exercise_4_1_UndirectedGraphs;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
@@ -10,7 +10,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @author baozzz1
  */
 public class GraphProperties {
-	private int[] eccentricities;
+	int[] eccentricities;
 	private int diameter = 0;
 	private int radius = Integer.MAX_VALUE;
 	private int center;
