@@ -1,9 +1,10 @@
-# Exercises 4.1
-## 4.1.1
+Exercises 4.1
+==
+### 4.1.1
 `V(V-1)/2`<br>
 `V-1`<br>
 
-## 4.1.2
+### 4.1.2
 	      adj[]
 		0	->	6 -> 2 -> 5
 		1	->	11-> 8 -> 1
@@ -17,7 +18,7 @@
 		9
 		10	->	3 -> 5
 		11	->	1 -> 7 -> 8
-## 4.1.3
+### 4.1.3
 ```Java
 public Graph(Graph G) {
 	this.V = G.V();
@@ -28,7 +29,7 @@ public Graph(Graph G) {
 	}
 }
 ```
-see [Graph.java](https://github.com/baozzz1/Algorithms-Learning/raw/master/src/UndirectedGraphs/Graph.java)
+click [Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java) to get the better one.
 ```Java
 //better one
 public Graph(Graph G) {
@@ -43,8 +44,8 @@ public Graph(Graph G) {
 	}
 }
 ```
-## 4.1.4
-
+### 4.1.4
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
 ```Java
 public boolean hasEdge(int v,int w) {
 	Bag<Integer> adj_v = (Bag<Integer>) this.adj(v);
@@ -55,5 +56,74 @@ public boolean hasEdge(int v,int w) {
 	return false;
 }
 ```
+### 4.1.5
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+```Java
+// Exercise 4.1.5
+public void addEdge(int v,int w) {
+	if(v==w)
+		return;
+	for(int u:adj[v])
+		if(u==w)
+			return;
+	adj[v].add(w);
+	for(int u:adj[w])
+		if(u==v)
+			return;
+	adj[w].add(v);
+	E++;
+}
+```
+### 4.1.6
+### 4.1.7
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+```Java
+public static void main(String[] args) {
+	In in = new In(args[0]);
+	Graph G = new Graph(in);
+	//the function toString() make G be the parameter of StdOut.println()
+	StdOut.println(G);
+}
+```
+### 4.1.10
+[DepthFirstSearch.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/DepthFirstSearch.java)
+```Java
+private void dfs(Graph G, int v) {
+	marked[v] = true;
+	count++;
+	boolean allMarked = true;
+	for (int w : G.adj(v))
+		if (!marked[w]) {
+			dfs(G, w);
+			allMarked=false;
+		}
+	if(allMarked)
+		StdOut.println(v + " can be deleted.");
+}
+```
+### 4.1.13
+[BreadthFirstPaths.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/BreadthFirstPaths.java)
+```Java
+public int distTo(Graph G, int target) {
+	return distTo[target];
+}
 
-	
+private void bfs(Graph G, int s) {
+	Queue<Integer> queue = new Queue<Integer>();
+	for(int i=0;i<G.V();i++)
+		distTo[i] = Integer.MAX_VALUE;
+	distTo[s] = 0;
+	marked[s] = true;
+	queue.enqueue(s);
+	while (!queue.isEmpty()) {
+		int v = queue.dequeue();
+		for (int w : G.adj(v))
+			if (!marked[w]) {
+				edgeTo[w] = v;
+				distTo[w] = distTo[v] + 1;
+				marked[w] = true;
+				queue.enqueue(w);
+			}
+	}
+}
+```

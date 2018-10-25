@@ -1,4 +1,4 @@
-package UndirectedGraphs;
+package Lesson4_1_UndirectedGraphs;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
@@ -16,29 +16,6 @@ public class Graph {
 		adj = (Bag<Integer>[]) new Bag[V]; // 创建邻接表
 		for (int v = 0; v < V; v++) // 将所有链表初始化为空
 			adj[v] = new Bag<Integer>();
-	}
-
-	// Exercise 4.1.3
-	public Graph(Graph G) {
-		this(G.V());
-		this.E = G.E();
-		for (int v = 0; v < G.V(); v++) {
-			Stack<Integer> reverse = new Stack<Integer>();
-			for (int w : G.adj[v])
-				reverse.push(w);
-			for (int w : reverse)
-				adj[v].add(w);
-		}
-	}
-
-	public boolean hasEdge(int v, int w) {
-		Bag<Integer> adj_v = (Bag<Integer>) this.adj(v);
-		if (adj_v.isEmpty())
-			return false;
-		for (int item : adj_v)
-			if (item == w)
-				return true;
-		return false;
 	}
 
 	public Graph(In in) {
@@ -98,12 +75,5 @@ public class Graph {
 			s += "\n";
 		}
 		return s;
-	}
-
-	public static void main(String[] args) {
-		In in = new In(args[0]);
-		Graph G = new Graph(in);
-		StdOut.println(G);
-		StdOut.println(G.hasEdge(12,9));
 	}
 }

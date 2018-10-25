@@ -1,4 +1,4 @@
-package UndirectedGraphs;
+package Lesson4_1_UndirectedGraphs;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.ST;

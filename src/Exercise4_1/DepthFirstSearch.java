@@ -1,4 +1,4 @@
-package UndirectedGraphs;
+package Exercise4_1;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
@@ -13,12 +13,18 @@ public class DepthFirstSearch {
 		dfs(G, s);
 	}
 
+	//Exercise 4.1.10
 	private void dfs(Graph G, int v) {
 		marked[v] = true;
 		count++;
+		boolean allMarked = true;
 		for (int w : G.adj(v))
-			if (!marked[w])
+			if (!marked[w]) {
 				dfs(G, w);
+				allMarked=false;
+			}
+		if(allMarked)
+			StdOut.println(v + " can be deleted.");
 	}
 
 	public boolean marked(int w) {
