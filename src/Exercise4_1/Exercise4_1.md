@@ -147,3 +147,4 @@ public Graph(In in) {
 }
 ```
 ### 4.1.16
+[GraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/GraphProperties.java)
