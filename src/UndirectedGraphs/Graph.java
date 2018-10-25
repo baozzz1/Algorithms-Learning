@@ -2,6 +2,7 @@ package UndirectedGraphs;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Stack;
 
 public class Graph {
 	private final int V; // 顶点数目
@@ -17,12 +18,15 @@ public class Graph {
 			adj[v] = new Bag<Integer>();
 	}
 
-	public Graph(Graph G){
-		this.V = G.V();
-		this.E= G.E();
-		adj = (Bag<Integer>[]) new Bag[V];
-		for(int v = 0;v<this.V;v++) {
-			adj[v] = (Bag<Integer>) G.adj(v);
+	public Graph(Graph G) {
+		this(G.V());
+		this.E = G.E();
+		for (int v = 0; v < G.V(); v++) {
+			Stack<Integer> reverse = new Stack<Integer>();
+			for(int w: G.adj[v])
+				reverse.push(w);
+			for(int w: reverse)
+				adj[v].add(w);
 		}
 	}
 	
