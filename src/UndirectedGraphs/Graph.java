@@ -3,13 +3,13 @@ package UndirectedGraphs;
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Graph {
 	private final int V; // 顶点数目
 	private int E; // 边数目
 	private Bag<Integer>[] adj; // 邻接表
 
-	@SuppressWarnings("unchecked")
 	public Graph(int V) {
 		this.V = V;
 		this.E = 0;
@@ -18,18 +18,29 @@ public class Graph {
 			adj[v] = new Bag<Integer>();
 	}
 
+	// Exercise 4.1.3
 	public Graph(Graph G) {
 		this(G.V());
 		this.E = G.E();
 		for (int v = 0; v < G.V(); v++) {
 			Stack<Integer> reverse = new Stack<Integer>();
-			for(int w: G.adj[v])
+			for (int w : G.adj[v])
 				reverse.push(w);
-			for(int w: reverse)
+			for (int w : reverse)
 				adj[v].add(w);
 		}
 	}
-	
+
+	public boolean hasEdge(int v, int w) {
+		Bag<Integer> adj_v = (Bag<Integer>) this.adj(v);
+		if (adj_v.isEmpty())
+			return false;
+		for (int item : adj_v)
+			if (item == w)
+				return true;
+		return false;
+	}
+
 	public Graph(In in) {
 		this(in.readInt()); // 读取V并初始化图
 		int E = in.readInt(); // 读取E
@@ -87,5 +98,12 @@ public class Graph {
 			s += "\n";
 		}
 		return s;
+	}
+
+	public static void main(String[] args) {
+		In in = new In(args[0]);
+		Graph G = new Graph(in);
+		StdOut.println(G);
+		StdOut.println(G.hasEdge(12,9));
 	}
 }

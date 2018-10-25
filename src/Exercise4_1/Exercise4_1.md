@@ -1,4 +1,4 @@
-# Exercises
+# Exercises 4.1
 ## 4.1.1
 `V(V-1)/2`<br>
 `V-1`<br>
@@ -28,6 +28,7 @@ public Graph(Graph G) {
 	}
 }
 ```
+see [Graph.java](https://github.com/baozzz1/Algorithms-Learning/raw/master/src/UndirectedGraphs/Graph.java)
 ```Java
 //better one
 public Graph(Graph G) {
@@ -42,4 +43,17 @@ public Graph(Graph G) {
 	}
 }
 ```
+## 4.1.4
+
+```Java
+public boolean hasEdge(int v,int w) {
+	Bag<Integer> adj_v = (Bag<Integer>) this.adj(v);
+	if(adj_v.isEmpty()) return false;
+	for(int item: adj_v)
+		if(item==w)
+			return true;
+	return false;
+}
+```
+
 	
