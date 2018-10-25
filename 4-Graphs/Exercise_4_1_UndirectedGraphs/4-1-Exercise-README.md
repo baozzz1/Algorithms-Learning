@@ -151,7 +151,7 @@ public Graph(In in) {
 ### 4.1.22
 [BaconHistogram.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/BaconHistogram.java)
 ### 4.1.23
-I cannot solve it,because the StackOverflowError when running the CC class.<br>
+I cannot solve it,because of the StackOverflowError when running the CC class.<br>
 [MoviesGraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/MoviesGraphProperties.java)
 ### 4.1.24
 [DegreeOfSeparation.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparation.java)
