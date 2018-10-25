@@ -17,6 +17,15 @@ public class Graph {
 			adj[v] = new Bag<Integer>();
 	}
 
+	public Graph(Graph G){
+		this.V = G.V();
+		this.E= G.E();
+		adj = (Bag<Integer>[]) new Bag[V];
+		for(int v = 0;v<this.V;v++) {
+			adj[v] = (Bag<Integer>) G.adj(v);
+		}
+	}
+	
 	public Graph(In in) {
 		this(in.readInt()); // 读取V并初始化图
 		int E = in.readInt(); // 读取E
