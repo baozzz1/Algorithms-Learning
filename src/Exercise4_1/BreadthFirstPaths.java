@@ -17,6 +17,7 @@ public class BreadthFirstPaths {
 		bfs(G, s);
 	}
 
+	//Exercise 4.1.13
 	public int distTo(Graph G, int target) {
 		return distTo[target];
 	}
