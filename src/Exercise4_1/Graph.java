@@ -18,17 +18,30 @@ public class Graph {
 			adj[v] = new Bag<Integer>();
 	}
 
+	/*
+	 * public Graph(In in) { this(in.readInt()); // 读取V并初始化图 int E = in.readInt();
+	 * // 读取E for (int i = 0; i < E; i++) { // 添加一条边 int v = in.readInt(); // 读取一个顶点
+	 * int w = in.readInt(); // 读取另一个顶点 addEdge(v, w); // 添加一条连接它们的边 } }
+	 */
+
+	// Exercise 4.1.15
 	public Graph(In in) {
 		this(in.readInt()); // 读取V并初始化图
-		int E = in.readInt(); // 读取E
-		for (int i = 0; i < E; i++) {
-			// 添加一条边
-			int v = in.readInt(); // 读取一个顶点
-			int w = in.readInt(); // 读取另一个顶点
-			addEdge(v, w); // 添加一条连接它们的边
+		this.E = in.readInt(); // 读取E
+		Stack<String> reverse = new Stack<String>();
+		while (!in.isEmpty()) {
+			String[] line = in.readLine().split(" ");
+			String v = line[0];
+			for (int i = 1; i < line.length; i++)
+				reverse.push(v + " " + line[i]);
+		}
+		for (String edge : reverse) {
+			int v = Integer.parseInt(edge.split(" ")[0]);
+			int w = Integer.parseInt(edge.split(" ")[1]);
+			addEdge(v, w);
 		}
 	}
-	
+
 	// Exercise 4.1.3
 	public Graph(Graph G) {
 		this(G.V());
@@ -60,22 +73,21 @@ public class Graph {
 	public int E() {
 		return E;
 	}
-	
-/*	public void addEdge(int v, int w) {
-		adj[v].add(w); // 将w添加到v的链表中
-		adj[w].add(v); // 将v添加到w的链表中
-		E++;
-	}*/
+
+	/*
+	 * public void addEdge(int v, int w) { adj[v].add(w); // 将w添加到v的链表中
+	 * adj[w].add(v); // 将v添加到w的链表中 E++; }
+	 */
 	// Exercise 4.1.5
-	public void addEdge(int v,int w) {
-		if(v==w)
+	public void addEdge(int v, int w) {
+		if (v == w)
 			return;
-		for(int u:adj[v])
-			if(u==w)
+		for (int u : adj[v])
+			if (u == w)
 				return;
 		adj[v].add(w);
-		for(int u:adj[w])
-			if(u==v)
+		for (int u : adj[w])
+			if (u == v)
 				return;
 		adj[w].add(v);
 		E++;
@@ -96,7 +108,7 @@ public class Graph {
 		return s;
 	}
 
-	//Exercise 4.1.7
+	// Exercise 4.1.7
 	public static void main(String[] args) {
 		In in = new In(args[0]);
 		Graph G = new Graph(in);

@@ -17,14 +17,14 @@ public class BreadthFirstPaths {
 		bfs(G, s);
 	}
 
-	//Exercise 4.1.13
-	public int distTo(Graph G, int target) {
-		return distTo[target];
+	// Exercise 4.1.13
+	public int distTo(Graph G, int v) {
+		return distTo[v];
 	}
 
 	private void bfs(Graph G, int s) {
 		Queue<Integer> queue = new Queue<Integer>();
-		for(int i=0;i<G.V();i++)
+		for (int i = 0; i < G.V(); i++)
 			distTo[i] = Integer.MAX_VALUE;
 		distTo[s] = 0;
 		marked[s] = true;

@@ -74,7 +74,6 @@ public void addEdge(int v,int w) {
 	E++;
 }
 ```
-### 4.1.6
 ### 4.1.7
 [Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
 ```Java
@@ -127,4 +126,24 @@ private void bfs(Graph G, int s) {
 	}
 }
 ```
-### 4.1.14
+### 4.1.15
+[Graph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/src/Exercise4_1/Graph.java)
+```Java
+public Graph(In in) {
+	this(in.readInt()); // 读取V并初始化图
+	this.E = in.readInt(); // 读取E
+	Stack<String> reverse = new Stack<String>();
+	while(!in.isEmpty()) {
+		String[] line = in.readLine().split(" ");
+		String v = line[0];
+		for(int i = 1;i<line.length;i++)
+			reverse.push(v+" "+line[i]);			
+	}
+	for(String edge: reverse) {
+		int v = Integer.parseInt(edge.split(" ")[0]);
+		int w = Integer.parseInt(edge.split(" ")[1]);
+		addEdge(v, w);
+	}
+}
+```
+### 4.1.16

@@ -13,7 +13,7 @@ public class DepthFirstSearch {
 		dfs(G, s);
 	}
 
-	//Exercise 4.1.10
+	// Exercise 4.1.10
 	private void dfs(Graph G, int v) {
 		marked[v] = true;
 		count++;
@@ -21,9 +21,9 @@ public class DepthFirstSearch {
 		for (int w : G.adj(v))
 			if (!marked[w]) {
 				dfs(G, w);
-				allMarked=false;
+				allMarked = false;
 			}
-		if(allMarked)
+		if (allMarked)
 			StdOut.println(v + " can be deleted.");
 	}
 
