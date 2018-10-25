@@ -1,33 +1,27 @@
-package Lesson_4_1_UndirectedGraphs;
+package Lesson___4_1_UndirectedGraphs;
 
-import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
 
-public class BreadthFirstPaths {
+//使用深度优先搜索得到从给定起点到任意标记顶点的路径所需的时间与路径的长度成正比
+public class DepthFirstPaths {
 	private boolean[] marked;
 	private int[] edgeTo;
 	private final int s;
 
-	public BreadthFirstPaths(Graph G, int s) {
+	public DepthFirstPaths(Graph G, int s) {
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
 		this.s = s;
-		bfs(G, s);
+		dfs(G, s);
 	}
 
-	private void bfs(Graph G, int s) {
-		Queue<Integer> queue = new Queue<Integer>();
-		marked[s] = true;
-		queue.enqueue(s);
-		while (!queue.isEmpty()) {
-			int v = queue.dequeue();
-			for (int w : G.adj(v))
-				if (!marked[w]) {
-					edgeTo[w] = v;
-					marked[w] = true;
-					queue.enqueue(w);
-				}
-		}
+	private void dfs(Graph G, int v) {
+		marked[v] = true;
+		for (int w : G.adj(v))
+			if (!marked[w]) {
+				edgeTo[w] = v;
+				dfs(G, w);
+			}
 	}
 
 	public boolean hasPathTo(int v) {
