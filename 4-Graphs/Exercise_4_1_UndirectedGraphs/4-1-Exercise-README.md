@@ -168,5 +168,5 @@ if(name.contains("\\(") && name.contains("\\)")) {
 StdOut.println(" " + name);
 ```
 ### 4.1.25
-[DegreeOfSeparationDFS.java![icon]](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparationDFS.java)
-[icon](https://github.com/baozzz1/Algorithms-Learning/raw/master/4-Graphs/icon/java.png)
+[DegreeOfSeparationDFS.java][![icon]](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparationDFS.java)
+[icon]:https://github.com/baozzz1/Algorithms-Learning/raw/master/4-Graphs/icon/java.png
