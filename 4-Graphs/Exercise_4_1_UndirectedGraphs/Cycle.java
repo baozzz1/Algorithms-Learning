@@ -12,13 +12,18 @@ public class Cycle {
 			}
 	}
 
+	//Exercise 4.1.28
 	private void dfs(Graph G, int v, int u) {
 		marked[v] = true;
-		for (int w : G.adj(v))
+		for (int w : G.adj(v)) {
+			// 允许自环，自环时hasCycle置true
+			if(w==v)
+				hasCycle = true;
 			if (!marked[w])
 				dfs(G, w, v);
-			else if (w != u)
+			else/* if (w != u)*/ //允许平行边
 				hasCycle = true;
+		}
 	}
 
 	public boolean hasCycle() {

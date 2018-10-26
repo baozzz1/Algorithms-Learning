@@ -153,8 +153,8 @@ public Graph(In in) {
 ### 4.1.23
 >I cannot solve it,because of the StackOverflowError when running the CC class.<br>
 
-The question is solved.if there is <b>stackOverFlowError</b> in eclipse,open the Run Configuration, 
-find the <b>Vm arguments</b> under the table <b>arguments</b>, enter (such as) <i>-Xss512m</i> (it should be more than 1m)<br>
+The question is solved. if there is <b>stackOverFlowError</b> in eclipse,open the Run Configuration, 
+find the <b>Vm arguments</b> under the table <b>arguments</b>, enter (such as) <i>-Xss512m</i> (it should be more than 1m).<br>
 [MoviesGraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/MoviesGraphProperties.java)
 ### 4.1.24
 [DegreeOfSeparation.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparation.java)
@@ -169,4 +169,51 @@ StdOut.println(" " + name);
 ```
 ### 4.1.25
 [DegreeOfSeparationDFS.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparationDFS.java)
-![](https://github.com/baozzz1/Algorithms-Learning/raw/master/4-Graphs/icon/java.png)
+### 4.1.28
+[Cycle.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Cycle.java)
+```Java
+//Exercise 4.1.28
+private void dfs(Graph G, int v, int u) {
+	marked[v] = true;
+	for (int w : G.adj(v)) {
+		// 允许自环，自环时hasCycle置true
+		if(w==v)
+			hasCycle = true;
+		if (!marked[w])
+			dfs(G, w, v);
+		else/* if (w != u)*/ //允许平行边
+			hasCycle = true;
+	}
+}
+```
+# Creative Problems
+### 4.1.29
+
+###4.1.30
+when there are V points and E edges:<br>
+the 1st edge get `C 2 V = V*(V-1)/2` solutions, <br>
+the 2nd edge get `C 2 V - 1 = V*(V-1)/2 - 1` solutions,<br>
+...<br>
+the Eth edge get `C 2 V - (E-1) = V*(V-1)/2 -(E-1)` solutions.<br>
+So, when `V(V-1) > 2(E-1)`, there are `[V(V-1)-E+1]*E/2` solutions;<br>
+    when `V(V-1) =   2E  `, there are `[V(V-1)+ 2 ]*E/4` solutions;<br>
+    V(V-1) cannot be less than 2E.<br> 
+### 4.1.31
+This algorithm has order of N time complexity.<br>
+`T(E) = O(N)`
+```Java
+% Input (Graph)G
+int count = 0;
+for(int v = 0;v<G.V();v++) {
+	int[] isParallel = new int[G.V()];
+	for(int w:G.adj(v)) {
+		isParallel[w]++;
+		if(isParallel[w]>=2)
+			count++;
+	}
+}
+StdOut.println("The parallel lines' number is " + count/2);
+```
+### 4.1.33
+
+### 
