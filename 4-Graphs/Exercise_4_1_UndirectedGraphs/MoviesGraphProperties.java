@@ -16,7 +16,6 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class MoviesGraphProperties {
 	
-	//问题：CC cc = new CC(G);内存溢出
 	public static void main(String[] args) {
 		 String filename  = args[0];
 	        String delimiter = args[1];

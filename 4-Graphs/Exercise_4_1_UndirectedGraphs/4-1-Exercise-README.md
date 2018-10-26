@@ -187,7 +187,7 @@ private void dfs(Graph G, int v, int u) {
 }
 ```
 # Creative Problems
-### 4.1.29
+### 4.1.29<br>
 
 ###4.1.30
 when there are V points and E edges:<br>
@@ -216,4 +216,4 @@ StdOut.println("The parallel lines' number is " + count/2);
 ```
 ### 4.1.33
 
-### 
+
