@@ -5,7 +5,11 @@ import edu.princeton.cs.algs4.StdOut;
 
 /**
  * The {@code MoviesGraphProperties} class's argument is<br>
- * movies.txt "/"
+ * movies.txt "/"<br>
+ * if there is <b>stackOverFlowError</b> in eclipse, 
+ * open the Run Configuration, 
+ * find the <b>Vm arguments</b> under the table <b>arguments</b>, 
+ * enter (such as) <i>-Xss512m</i> (it should be more than 1m)
  * 
  * @author baozzz1
  *

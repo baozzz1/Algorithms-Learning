@@ -151,7 +151,10 @@ public Graph(In in) {
 ### 4.1.22
 [BaconHistogram.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/BaconHistogram.java)
 ### 4.1.23
-I cannot solve it,because of the StackOverflowError when running the CC class.<br>
+>I cannot solve it,because of the StackOverflowError when running the CC class.<br>
+
+The question is solved.if there is <b>stackOverFlowError</b> in eclipse,open the Run Configuration, 
+find the <b>Vm arguments</b> under the table <b>arguments</b>, enter (such as) <i>-Xss512m</i> (it should be more than 1m)<br>
 [MoviesGraphProperties.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/MoviesGraphProperties.java)
 ### 4.1.24
 [DegreeOfSeparation.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparation.java)
@@ -164,4 +167,6 @@ if(name.contains("\\(") && name.contains("\\)")) {
 }					
 StdOut.println(" " + name);
 ```
-
+### 4.1.25
+[DegreeOfSeparationDFS.java![icon]](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/DegreeOfSeparationDFS.java)
+[icon](https://github.com/baozzz1/Algorithms-Learning/raw/master/4-Graphs/icon/java.png)
