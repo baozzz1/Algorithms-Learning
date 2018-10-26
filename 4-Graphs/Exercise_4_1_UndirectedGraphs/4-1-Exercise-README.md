@@ -187,7 +187,8 @@ private void dfs(Graph G, int v, int u) {
 }
 ```
 # Creative Problems
-### 4.1.29<br>
+### 4.1.29
+<br>
 
 ###4.1.30
 when there are V points and E edges:<br>
