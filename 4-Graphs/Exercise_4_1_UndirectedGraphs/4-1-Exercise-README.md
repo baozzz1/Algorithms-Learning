@@ -232,7 +232,8 @@ public ErdoRenyiGraph(int vertices, int edges) {
 		} while (u == w || this.G.hasEdge(u, w));
 		this.G.addEdge(u, w);
 	}
-}```
+}
+```
 ### 4.1.39 Random Simple Graph
 [RandomSimpleGraph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/RandomSimpleGraph.java)
 <br>`Not finished.`
