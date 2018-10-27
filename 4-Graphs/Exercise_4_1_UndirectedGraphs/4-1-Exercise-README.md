@@ -187,19 +187,18 @@ private void dfs(Graph G, int v, int u) {
 }
 ```
 # Creative Problems
-### 4.1.29
-null<br>
-
-###4.1.30
+###4.1.30 Graph Enumeration
 when there are V points and E edges:<br>
-the 1st edge get `C 2 V = V*(V-1)/2` solutions, <br>
-the 2nd edge get `C 2 V - 1 = V*(V-1)/2 - 1` solutions,<br>
-...<br>
-the Eth edge get `C 2 V - (E-1) = V*(V-1)/2 -(E-1)` solutions.<br>
-So, when `V(V-1) > 2(E-1)`, there are `[V(V-1)-E+1]*E/2` solutions;<br>
-    when `V(V-1) =   2E  `, there are `[V(V-1)+ 2 ]*E/4` solutions;<br>
-    V(V-1) cannot be less than 2E.<br> 
-### 4.1.31
+- the 1st edge get `C 2 V = V*(V-1)/2` solutions, <br>
+- the 2nd edge get `(C 2 V) - 1 = V*(V-1)/2 - 1` solutions,<br>
+- ...<br>
+- the Eth edge get `(C 2 V) - (E-1) = V*(V-1)/2 - (E-1)` solutions.<br>
+
+So, <br>
+- when `V(V-1) > 2(E-1)`, there are `[V(V-1)-E+1]*E/2` solutions;<br>
+- when `V(V-1) =   2E  `, there are `[V(V-1)+ 2 ]*E/4` solutions;<br>
+- besides, V(V-1) cannot be less than 2E.<br> 
+### 4.1.31 Parallel Edge Detection
 This algorithm has order of N time complexity.<br>
 `T(E) = O(N)`
 ```Java
@@ -215,6 +214,31 @@ for(int v = 0;v<G.V();v++) {
 }
 StdOut.println("The parallel lines' number is " + count/2);
 ```
-### 4.1.33
+### 4.1.35 Bitconnectedness
+[Bridge.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/Bridge.java)
+# Experiment Problems
+### 4.1.38 Random Graphs
+[ErdoRenyiGraph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/ErdoRenyiGraph.java)
+```Java
+public ErdoRenyiGraph(int vertices, int edges) {
+	this.G = new Graph(vertices);
+	int u, w;
+	for (int e = 0; e < edges; e++) {
+		do {
+			u = (int) (Math.random() * vertices);
+			w = (int) (Math.random() * vertices);
+			if (vertices * (vertices - 1) <= 2 * e)
+				break;
+		} while (u == w || this.G.hasEdge(u, w));
+		this.G.addEdge(u, w);
+	}
+}```
+### 4.1.39 Random Simple Graph
+[RandomSimpleGraph.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/RandomSimpleGraph.java)
+<br>`Not finished.`
+### 4.1.40 Random Sparse Graphs
+[RandomSparseGraphs.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/4-Graphs/Exercise_4_1_UndirectedGraphs/RandomSparseGraphs.java)
+<br>`Not finished.`
+
 
 
