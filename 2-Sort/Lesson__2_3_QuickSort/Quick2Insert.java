@@ -1,8 +1,8 @@
 package Lesson__2_3_QuickSort;
 
+import java.lang.System;
 import edu.princeton.cs.algs4.StdRandom;
 import Lesson__2_1_ElementarySorts.Insertion;
-
 /**
  * Exercise 2.3.25
  * 
@@ -73,6 +73,6 @@ public class Quick2Insert {
 			d[i] = StdRandom.uniform(1000000000);
 		}
 		
-		
+		System.currentTimeMillis();
 	}
 }
