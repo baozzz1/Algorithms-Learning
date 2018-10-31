@@ -1,4 +1,4 @@
-package Lesson__2_3_QuickSort;
+package Exercise_2_3_QuickSort;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
