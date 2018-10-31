@@ -1,12 +1,14 @@
 package Lesson__2_3_QuickSort;
 
 import java.lang.System;
+
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import Lesson__2_1_ElementarySorts.Insertion;
 /**
  * Exercise 2.3.25
- * 
- * @author baozzz1 2018年10月29日
+ * @author baozzz1 
+ * 2018年10月29日
  */
 public class Quick2Insert {
 	public static void sort(Comparable[] a, int M) {
@@ -19,7 +21,7 @@ public class Quick2Insert {
 	}
 
 	private static void sort(Comparable[] a, int lo, int hi, int M) {
-		if (hi < lo)
+		if (hi <= lo)
 			return;
 		if (hi - lo + 1 < M)
 			Insertion.sort(a, lo, hi);
@@ -58,21 +60,30 @@ public class Quick2Insert {
 		return a.compareTo(b) < 0;
 	}
 
-	public static void main(String[] args) {
-		int[] a = new int[(int) 10e3];
-		int[] b = new int[(int) 10e4];
-		int[] c = new int[(int) 10e5];
-		int[] d = new int[(int) 10e6];
-		for (int i = 0; i < d.length; i++) {
-			if (i < a.length)
+	private static Comparable[] randomArray(int N) {
+		Comparable[] a = new Comparable[N];
+		for (int i = 0; i < a.length; i++)
 				a[i] = StdRandom.uniform(1000000000);
-			if (i < b.length)
-				b[i] = StdRandom.uniform(1000000000);
-			if (i < c.length)
-				c[i] = StdRandom.uniform(1000000000);
-			d[i] = StdRandom.uniform(1000000000);
+		return a;
+	}
+	
+	public static void main(String[] args) {
+		int arrayLength = (int) 1e3;
+		int M = 0,minM = 0;
+		long minTime = Long.MAX_VALUE;
+		Comparable[] a = randomArray(arrayLength);
+		for(;M<=30;M++) {
+			Comparable[] test = a;
+			long start = System.currentTimeMillis();
+			Quick2Insert.sort(test,M);
+			long end =  System.currentTimeMillis();
+			long time = end-start;
+			if(time<minTime) {
+				minTime = time;
+				minM = M;
+			}
+			StdOut.println("When the M is "+M+", sort length "+arrayLength+" array, time is "+time);
 		}
 		
-		System.currentTimeMillis();
 	}
 }

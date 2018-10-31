@@ -4,9 +4,9 @@ import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * @author baozzz1
- * 2018年10月28日
+ * 2018年10月30日
  */
-public class Quick {
+public class Quick3way {
 	public static void sort(Comparable[] a) {
 		StdRandom.shuffle(a);
 		sort(a,0,a.length-1);
@@ -15,22 +15,16 @@ public class Quick {
 	private static void sort(Comparable[] a, int lo, int hi) {
 		if (hi <= lo)
 			return;
-		int j = partition(a, lo, hi);
-		sort(a, lo, j - 1);
-		sort(a, j + 1, hi);
-	}
-
-	private static int partition(Comparable[] a, int lo, int hi) {
+		int lt = lo,i = lo+1,gt=hi;
 		Comparable v = a[lo];
-		int i = lo,j = hi +1;
-		while(true) {
-			while(less(a[++i],v)) if(i==hi) break;
-			while(less(v,a[--j])) if(j==lo) break;
-			if(i>=j)break;
-			exch(a,i,j);
+		while(i<=gt) {
+			int cmp = a[i].compareTo(v);
+			if(cmp<0) exch(a,lt++,i++);
+			else if(cmp>0) exch(a,i,gt--);
+			else i++;
 		}
-		exch(a,lo,j);
-		return j;
+		sort(a, lo, lt - 1);
+		sort(a, gt + 1, hi);
 	}
 
 	private static void exch(Comparable[] a, int i, int j) {

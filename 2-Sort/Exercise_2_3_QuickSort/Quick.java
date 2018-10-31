@@ -1,10 +1,10 @@
-package Lesson__2_3_QuickSort;
+package Exercise_2_3_QuickSort;
 
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * @author baozzz1
- * 2018年10月28日
+ * 2018年10月30日
  */
 public class Quick {
 	public static void sort(Comparable[] a) {
