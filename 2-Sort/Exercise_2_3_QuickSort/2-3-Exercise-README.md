@@ -1,6 +1,8 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 Exercises 2.3
 ==
 ### 2.3.1
+```
 									0 1 2 3 4 5 6 7 8 9 1011
 					lo	j	hi		E A S Y Q U E S T I O N
 					0		11		E
@@ -10,7 +12,9 @@ Exercises 2.3
 					3		6->2		E Y Q U 
 	exch(a,lo,j)	3		2		E   E
 	return j;						E A E Y Q U S S T I O N 
+```
 ### 2.3.2
+```
 									0 1 2 3 4 5 6 7 8 9 1011
 					lo	j	hi		E A S Y Q U E S T I O N
 					0	2	11		E A E Y Q U S S T I O N
@@ -26,6 +30,7 @@ Exercises 2.3
 					8	9	9		                S T
 					8		8						S
 	result:							A E E I N O Q S S T U Y
+```
 ### 2.3.3
 `N/2`
 ### 2.3.4
@@ -40,7 +45,7 @@ See as [Quick_CountCompareTimes.java](https://github.com/baozzz1/Algorithms-Lear
 ### 2.3.8
 `NlogN`
 ### 2.3.10
-
+$P({\frac{x-\mu}{\sigma}}>=k)<=\frac{1}{k^2}$
 
 
 # Creative Problems
