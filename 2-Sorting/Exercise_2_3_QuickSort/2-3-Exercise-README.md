@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 Exercises 2.3
 ==
 ### 2.3.1
@@ -36,9 +35,9 @@ Exercises 2.3
 ### 2.3.4
 A sorted list.
 ### 2.3.5
-See as [Quick2distinct.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorts/Exercise_2_3_QuickSort/Quick2distinct.java)
+See as [Quick2distinct.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/Quick2distinct.java)
 ### 2.3.6
-See as [Quick_CountCompareTimes.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorts/Exercise_2_3_QuickSort/Quick_CountCompareTimes.java)
+See as [Quick_CountCompareTimes.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/Quick_CountCompareTimes.java)
 ### 2.3.7
 	C0(n)=C1(n)=(n+1)/3,n>2
 	C2(n)=(n+1)/6,n>3

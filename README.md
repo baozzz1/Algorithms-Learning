@@ -3,7 +3,7 @@ Algorithms Learning
 This project includes all the Lessons codes and Exercises codes of *Algorithms 4th*.
 
 ## Chapter2 Sorting
-[Code page](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorts)
+[Code page](https://github.com/baozzz1/Algorithms-Learning/tree/master/2-Sort)
 #### Lesson2.1 ElementarySorts
 [Lesson Note]<br>
 [Exercise Note]
