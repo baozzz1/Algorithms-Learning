@@ -4,12 +4,12 @@ Exercises 2.3
 ```
 					0 1 2 3 4 5 6 7 8 9 10 11
 		lo	j	hi	E A S Y Q U E S T I O  N
-		0		11	E
-		0->2		11->6	  A S       E S T I O  N
-exch(a,i,j)	2		6	    E       S S T I O  N
-		2->3		6	      Y
-		3		6->2	E Y Q U 
-exch(a,lo,j)	3		2	E   E
+		0	11		E
+		0->2	11->6		  A S       E S T I O  N
+exch(a,i,j)	2	6		    E       S S T I O  N
+		2->3	6		      Y
+		3	6->2		E Y Q U 
+exch(a,lo,j)	3	2		E   E
 return j;				E A E Y Q U S S T I O  N 
 ```
 ### 2.3.2
