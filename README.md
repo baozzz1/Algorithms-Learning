@@ -11,7 +11,7 @@ This project includes all the Lessons codes and Exercises codes of *Algorithms 4
 [Lesson Note]<br>
 [Exercise Note]
 #### Lesson2.3 QuickSorts
-[Lesson Note]
+[Lesson Note]<br>
 [Exercise Note](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/2-3-Exercise-README.md)<br>
 #### Lesson2.4 Priority Queues
 [Lesson Note]<br>
