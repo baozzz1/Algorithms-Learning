@@ -42,12 +42,12 @@ See as [Quick_CountCompareTimes.java](https://github.com/baozzz1/Algorithms-Lear
 	C0(n)=C1(n)=(n+1)/3,n>2
 	C2(n)=(n+1)/6,n>3
 ### 2.3.8
-`NlogN`
-### 2.3.10
-
-
-
+`~NlogN`
 # Creative Problems
+### 2.3.15
+See as [Quick_NutsAndBolts.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/Quick_NutsAndBolts.java)
+### 2.3.16
+
 # Experiment Problems
 
 
