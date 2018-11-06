@@ -3,7 +3,8 @@ package Exercise_2_3_QuickSort;
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
- * Exercise 2.3.17 Sentinel<br>
+ * <a href="https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/2-3-Exercise-README.md">
+ * Exercise 2.3.17 Sentinel</a><br>
  * Result: this Algorithm Quick_Sentinel is 17% faster than Quick.
  * @author baozzz1
  * 2018年11月06日

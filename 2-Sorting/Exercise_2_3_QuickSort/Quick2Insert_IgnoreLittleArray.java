@@ -1,4 +1,4 @@
-package Lesson__2_3_QuickSort;
+package Exercise_2_3_QuickSort;
 
 import java.lang.System;
 
@@ -7,25 +7,23 @@ import edu.princeton.cs.algs4.StdRandom;
 import Lesson__2_1_ElementarySorts.Insertion;
 /**
  * <a href="https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_3_QuickSort/2-3-Exercise-README.md">
- * Exercise 2.3.25 ReadMe</a>
+ * Exercise 2.3.27 ReadMe</a>
  * @author baozzz1 
- * 2018年10月29日
+ * 2018年11月06日
  */
-public class Quick2Insert {
+public class Quick2Insert_IgnoreLittleArray {
 	public static void sort(Comparable[] a, int M) {
-		if (a.length < M)
-			Insertion.sort(a);
+		if (a.length < M);
 		else {
 			StdRandom.shuffle(a);
 			sort(a, 0, a.length - 1, M);
 		}
+		Insertion.sort(a);
 	}
 
 	private static void sort(Comparable[] a, int lo, int hi, int M) {
-		if (hi <= lo)
+		if (hi <= lo || hi - lo <= M)
 			return;
-		if (hi - lo + 1 < M)
-			Insertion.sort(a, lo, hi);
 		else {
 			int j = partition(a, lo, hi);
 			sort(a, lo, j - 1, M);
@@ -76,7 +74,7 @@ public class Quick2Insert {
 		for (; M <= 30; M++) {
 			Comparable[] test = a;
 			long start = System.currentTimeMillis();
-			Quick2Insert.sort(test, M);
+			Quick2Insert_IgnoreLittleArray.sort(test, M);
 			long end = System.currentTimeMillis();
 			long time = end - start;
 			if (time < minTime) {
