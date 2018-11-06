@@ -5,6 +5,7 @@ import Exercise_2_3_QuickSort.Quick_3PickWithSentinel;
 import Exercise_2_3_QuickSort.Quick_NoRandom;
 import Exercise_2_3_QuickSort.Quick_NoRecursive;
 import Exercise_2_3_QuickSort.Quick_Sentinel;
+import Exercise_2_3_QuickSort.SampleSort;
 import Lesson__2_3_QuickSort.Quick;
 import Lesson__2_3_QuickSort.Quick2Insert;
 import edu.princeton.cs.algs4.StdOut;
@@ -33,6 +34,7 @@ public class SortCompare {
 		if(alg.equals("Quick_Sentinel")) Quick_Sentinel.sort(a);
 		if(alg.equals("Quick_3PickWithSentinel")) Quick_3PickWithSentinel.sort(a,15);
 		if(alg.equals("Quick2Insert")) Quick2Insert.sort(a, 15);
+		if(alg.equals("SampleSort")) SampleSort.sort(a, 7);
 		return timer.elapsedTime();
 	}
 	

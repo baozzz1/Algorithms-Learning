@@ -43,7 +43,7 @@ public class Quick_NutsAndBolts {
 			StdOut.print(a[i] + " ");
 		StdOut.println();
 	}
-
+ 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
 		Comparable[] nuts = new Comparable[N];
