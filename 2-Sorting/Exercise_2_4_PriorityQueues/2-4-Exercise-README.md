@@ -141,7 +141,12 @@ public void resize(int n) {
 ```
 See as [MaxPQ.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_4_PriorityQueues/MaxPQ.java)<br>
 ### 2.4.25
-
+See as [CubeSum.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_4_PriorityQueues/CubeSum.java)<br>
+### 2.4.27
+See as [MaxPQ.java](https://github.com/baozzz1/Algorithms-Learning/blob/master/2-Sorting/Exercise_2_4_PriorityQueues/MaxPQ.java)<br>
+### 2.4.28
+`NlogM = 10^8 * log 10^4`
+### 2.4.29
 
 
 
