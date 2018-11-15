@@ -1,5 +1,6 @@
 package Exercise_2_4_PriorityQueues;
 
+import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -7,22 +8,47 @@ import edu.princeton.cs.algs4.Transaction;
 
 /**
  * @author baozzz1 
- * 2018年11月12日
+ * 2018年11月15日
  */
-public class MaxPQ<Key extends Comparable<Key>> {
-	private Key[] pq;
+public class MedianPQ<Key extends Comparable<Key>> {
+	// ordered: maxPQ, V, minPQ
+	private MinPQ<Key> minPQ;
+	private MaxPQ<Key> maxPQ;
 	private int N = 0;
-	private Key min;
+	private Key v;
 
-	public MaxPQ(int maxN) {
-		pq = (Key[]) new Comparable[maxN + 1];
+	public MedianPQ(int maxN) {
+		minPQ = new MinPQ<Key>(maxN/2+1);
+		maxPQ = new MaxPQ<Key>(maxN/2+1);
 	}
 	
-	// Exercise 2.3.19
-	public MaxPQ(Key[] keys) {
-		for (int i = 0; i < keys.length; i++) {
-			pq[++N] = keys[i];
-			swim(N);
+	public MedianPQ(Key[] keys) {
+		if(keys.length==0)
+			return;
+		v = keys[0];
+		N++;
+		for (int i = 1; i < keys.length; i++) {
+			if(v.compareTo(keys[i]) < 0) {
+				if(maxPQ.size() < minPQ.size()) {
+					minPQ.insert(keys[i]);
+					maxPQ.insert(v);
+					v = minPQ.delMin();
+				}else
+					minPQ.insert(keys[i]);
+			}else if(v.compareTo(keys[i]) > 0) {
+				if(minPQ.size() < maxPQ.size()) {
+					maxPQ.insert(keys[i]);
+					minPQ.insert(v);
+					v = maxPQ.delMax();
+				}else
+					maxPQ.insert(keys[i]);
+			}else {
+				if(minPQ.size() < maxPQ.size())
+					minPQ.insert(keys[i]);
+				else
+					maxPQ.insert(keys[i]);
+			}	
+			N++;
 		}
 	}
 	
@@ -94,7 +120,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 	}
 	public static void main(String[] args) {
 		int M = Integer.parseInt(args[0]);
-		MaxPQ<Transaction> pq = new MaxPQ<Transaction>(M + 1);
+		MediumPQ<Transaction> pq = new MediumPQ<Transaction>(M + 1);
 		while (StdIn.hasNextLine()) {
 			pq.insert(new Transaction(StdIn.readLine()));
 			if (pq.size() > M)
