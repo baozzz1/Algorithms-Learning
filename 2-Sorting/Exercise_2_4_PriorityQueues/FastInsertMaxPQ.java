@@ -6,33 +6,24 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Transaction;
 
 /**
+ * Exercise 2.4.31
  * @author baozzz1 
- * 2018年11月12日
+ * 2018年11月19日
  */
-public class MaxPQ<Key extends Comparable<Key>> {
+public class FastInsertMaxPQ<Key extends Comparable<Key>> {
 	private Key[] pq;
 	private int N = 0;
 	private Key min;
 
-	public MaxPQ(int maxN) {
+	public FastInsertMaxPQ(int maxN) {
 		pq = (Key[]) new Comparable[maxN + 1];
 	}
 	
-	// Exercise 2.4.19
-	public MaxPQ(Key[] keys) {
+	public FastInsertMaxPQ(Key[] keys) {
 		for (int i = 0; i < keys.length; i++) {
 			pq[++N] = keys[i];
 			swim(N);
 		}
-	}
-	
-	// Exercise 2.4.22
-	public void resize(int n) {
-		assert n > N;
-		Key[] temp = (Key[]) new Comparable[n];
-		for (int i = 1; i < n; i++)
-			temp[i] = pq[i];
-		pq = temp;
 	}
 
 	// Exercise 2.4.27
@@ -60,7 +51,11 @@ public class MaxPQ<Key extends Comparable<Key>> {
 		return N == 0;
 	}
 
+	/*
+	 * Rewrite this function
+	 */
 	private void swim(int k) {
+		
 		while (k > 1 && less(k / 2, k)) {
 			exch(k, k / 2);
 			k /= 2;
@@ -94,7 +89,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 	}
 	public static void main(String[] args) {
 		int M = Integer.parseInt(args[0]);
-		MaxPQ<Transaction> pq = new MaxPQ<Transaction>(M + 1);
+		FastInsertMaxPQ<Transaction> pq = new FastInsertMaxPQ<Transaction>(M + 1);
 		while (StdIn.hasNextLine()) {
 			pq.insert(new Transaction(StdIn.readLine()));
 			if (pq.size() > M)
