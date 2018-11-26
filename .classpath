@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="4-Graphs"/>
 	<classpathentry kind="src" path="2-Sorting"/>
+	<classpathentry kind="src" path="3-Searching"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libs/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
