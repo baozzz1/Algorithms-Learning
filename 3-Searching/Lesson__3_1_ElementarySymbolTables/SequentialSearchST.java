@@ -1,5 +1,7 @@
 package Lesson__3_1_ElementarySymbolTables;
 
+import edu.princeton.cs.algs4.Queue;
+
 /**
  * 基于无序链表的顺序查找
  * @author baozzz1 
@@ -37,32 +39,31 @@ public class SequentialSearchST<Key, Value> {
 		first = new Node(key, val, first);
 		N++;
 	}
-	
+
+	// Exercise 3.1.5
 	public int size() {
 		return N;
 	}
-	
+
+	// Exercise 3.1.5
 	public void delete(Key key) {
-		for(Node x = first;x!=null;x=x.next)
-			if(key.equals(x.key)) {
-				//if x is the first node
-				if(x==first) {
-					//if x is the first and the last node
-					if(x.next==null) {
+		for (Node x = first; x != null; x = x.next)
+			if (key.equals(x.key)) {
+				// if x is the first node
+				if (x == first) {
+					// if x is the first and the last node
+					if (x.next == null) {
 						first.val = null;
 						first.next = null;
 						first = null;
-					}
-					else {
+					} else {
 						first.val = null;
-						first = new Node(first.next.key,first.next.val,first.next.next);
+						first = new Node(first.next.key, first.next.val, first.next.next);
 					}
-				}
-				else if(x.next==null) {
+				} else if (x.next == null) {
 					x.val = null;
-					x=null;
-				}
-				else {
+					x = null;
+				} else {
 					x.key = x.next.key;
 					x.val = x.next.val;
 					x = x.next;
@@ -70,5 +71,13 @@ public class SequentialSearchST<Key, Value> {
 				}
 				return;
 			}
+	}
+
+	// Exercise 3.1.5
+	public Iterable<Key> keys() {
+		Queue<Key> q = new Queue<Key>();
+		for (Node x = first; x != null; x = x.next)
+			q.enqueue(x.key);
+		return q;
 	}
 }
