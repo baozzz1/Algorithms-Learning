@@ -7,6 +7,7 @@ package Lesson__3_1_ElementarySymbolTables;
  */
 public class SequentialSearchST<Key, Value> {
 	private Node first;
+	private int N;
 
 	private class Node {
 		Key key;
@@ -34,6 +35,40 @@ public class SequentialSearchST<Key, Value> {
 				return;
 			}
 		first = new Node(key, val, first);
-
+		N++;
+	}
+	
+	public int size() {
+		return N;
+	}
+	
+	public void delete(Key key) {
+		for(Node x = first;x!=null;x=x.next)
+			if(key.equals(x.key)) {
+				//if x is the first node
+				if(x==first) {
+					//if x is the first and the last node
+					if(x.next==null) {
+						first.val = null;
+						first.next = null;
+						first = null;
+					}
+					else {
+						first.val = null;
+						first = new Node(first.next.key,first.next.val,first.next.next);
+					}
+				}
+				else if(x.next==null) {
+					x.val = null;
+					x=null;
+				}
+				else {
+					x.key = x.next.key;
+					x.val = x.next.val;
+					x = x.next;
+					x.next = x.next.next;
+				}
+				return;
+			}
 	}
 }
