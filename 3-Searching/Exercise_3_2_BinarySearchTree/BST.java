@@ -332,9 +332,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 			return 0.0;
 		else if (N == 1)
 			return 1.0;
-		int totalCompares = 0;
+		long totalCompares = 0;
+		long number = 1;
 		int height = 1;
-		int number = 1;
 		while (true) {
 			totalCompares += height * number;
 			height++;
