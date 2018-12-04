@@ -1,15 +1,21 @@
 package Exercise_3_2_BinarySearchTree;
 
+import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
 
 /**
+ * Exercise 3.2.6, 3.2.7, 3.2.8
+ * Exercise 3.2.28, 3.2.29-3.2.32
+ * Exercise 3.2.33
  * @author baozzz1 
  * 2018年12月3日
  */
 public class BST<Key extends Comparable<Key>, Value> {
 	private Node root;
+	
+	// Exercise 3.2.28
+	private Node lastVisitNode;
 
 	private class Node {
 		private Key key;
@@ -42,11 +48,16 @@ public class BST<Key extends Comparable<Key>, Value> {
 			return x.N;
 	}
 
+	// Exercise 3.2.28
 	public Value get(Key key) {
-		return get(root, key);
+		if(lastVisitNode!=null && key == lastVisitNode.key)
+			return lastVisitNode.val;
+		lastVisitNode = get(root, key);
+		return lastVisitNode.val;
 	}
-
-	private Value get(Node x, Key key) {
+	
+	// Exercise 3.2.28
+	private Node get(Node x, Key key) {
 		if (x == null)
 			return null;
 		int cmp = key.compareTo(x.key);
@@ -55,23 +66,32 @@ public class BST<Key extends Comparable<Key>, Value> {
 		else if (cmp > 0)
 			return get(x.right, key);
 		else
-			return x.val;
+			return x;
 	}
 
+	// Exercise 3.2.28
 	public void put(Key key, Value val) {
+		if(lastVisitNode!=null && key == lastVisitNode.key)
+			lastVisitNode.val = val;
 		root = put(root, key, val);
 	}
 
 	private Node put(Node x, Key key, Value val) {
-		if (x == null)
-			return new Node(key, val, 1, 1, 1);
+		if (x == null) {
+			// Exercise 3.2.28
+			lastVisitNode = new Node(key, val, 1, 1, 1);
+			return lastVisitNode;
+		}
 		int cmp = key.compareTo(x.key);
 		if (cmp < 0)
 			x.left = put(x.left, key, val);
 		else if (cmp > 0)
 			x.right = put(x.right, key, val);
-		else
+		else {
 			x.val = val;
+			// Exercise 3.2.28
+			lastVisitNode = x;
+		}
 		x.N = size(x.left) + size(x.right) + 1;
 		// Exercise 3.2.6 way2
 		x.height = Math.max(heightWay2(x.left), heightWay2(x.right)) + 1;
@@ -265,10 +285,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 			keys(x.right, queue, lo, hi);
 	}
 
-	/*
-	 * Exercise 3.2.6 
-	 * 1. 递归的方法，用时N，所需空间和树高成正比；
-	 */
+	/* ********************	Exercise 3.2.6	**************************
+	 * 方法1, 递归的方法，用时N，所需空间和树高成正比
+	 * ***************************************************************/
 	public int heightWay1() {
 		return heightWay1(root);
 	}
@@ -280,10 +299,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 			return Math.max(heightWay1(x.left), heightWay1(x.right)) + 1;
 	}
 
-	/*
-	 * Exercise 3.2.6 
-	 * 2. 模仿size()
-	 */
+	/* ********************	Exercise 3.2.6	**************************
+	 * 方法2, 模仿size()
+	 * ***************************************************************/
 	public int heightWay2() {
 		return heightWay2(root);
 	}
@@ -295,10 +313,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 			return x.height;
 	}
 	
-	/*
-	 * Exercise 3.2.7 
-	 * 1. 递归的方法，用时N，所需空间和树高成正比
-	 */
+	/* ********************	Exercise 3.2.7	**************************
+	 * 方法1, 递归的方法，用时N，所需空间和树高成正比
+	 * ***************************************************************/
 	public double avgComparesWay1() {
 		return totalComparesWay1(root)/(double)size() + 1;
 	}
@@ -310,10 +327,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return totalComparesLeft + totalComparesRight + 1;
 	}
 	
-	/*
-	 * Exercise 3.2.7 
-	 * 2. 模仿size()
-	 */
+	/* ********************	Exercise 3.2.7	**************************
+	 * 方法2, 模仿size()
+	 * ***************************************************************/
 	public double avgComparesWay2() {
 		return totalComparesWay1(root)/(double)size() + 1;
 	}
@@ -323,10 +339,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		else return x.totalCompares;
 	}
 	
-	/*
-	 * Exercise 3.2.8
-	 *  接受一个整型N，返回完美二叉树平均一次命中所需的时间
-	 */
+	/* ********************	Exercise 3.2.8	**************************
+	 * 接受一个整型N，返回完美二叉树平均一次命中所需的时间
+	 * ***************************************************************/
 	public static double optCompares(int N) {
 		if (N == 0)
 			return 0.0;
@@ -344,6 +359,80 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 		totalCompares -= (height - 1) * (number - 1 - N);
 		return totalCompares/(double)N;
+	}
+	
+	/* ********************	Exercise 3.2.29	**************************
+	 * isBinaryTree
+	 * ***************************************************************/
+	public boolean isBinaryTree(Node x) {
+		if(x == null) return true;
+		return sizeOfTree(x) == size(x);
+	}
+	
+	private int sizeOfTree(Node x) {
+		if(x == null) return 0;
+		return sizeOfTree(x.left) + sizeOfTree(x.right) + 1;
+	}
+
+	/* ********************	Exercise 3.2.30	**************************
+	 * isOrdered
+	 * ***************************************************************/
+	public boolean isOrdered(Node x, Key min, Key max) {
+		if(x == null) return true;
+		int cmplo = min.compareTo(x.key);
+		int cmphi = max.compareTo(x.key);
+		if(cmplo > 0 || cmphi < 0)
+			return false;
+		return isOrdered(x.left, min, max) && isOrdered(x.right, min, max);
+	}
+
+	/* ********************	Exercise 3.2.31	**************************
+	 * hasNoDuplicates
+	 * ***************************************************************/
+	public boolean hasNoDuplicates(Node x) {
+		if(x == null) return true;
+		Bag<Key> bag = new Bag<Key>();
+		return hasNoDuplicates(x,bag);
+	}
+	
+	private boolean hasNoDuplicates(Node x, Bag<Key> bag) {
+		if(x == null) return true;
+		if(!bag.isEmpty())
+			for(Key k:bag)
+				if(k.compareTo(x.key)==0)
+					return false;
+		bag.add(x.key);
+		return hasNoDuplicates(x.left, bag) &&hasNoDuplicates(x.right, bag);
+	}
+	
+	/* ********************	Exercise 3.2.32	**************************
+	 * isBST
+	 * ***************************************************************/
+	public boolean isBST() {
+		if(!isBinaryTree(root)) return false;
+		if(!isOrdered(root,min(),max())) return false;
+		if(!hasNoDuplicates(root)) return false;
+		return true;
+	}
+	
+	/* ********************	Exercise 3.2.33	**************************
+	 * rankCheck
+	 * ***************************************************************/
+	public boolean rankCheck() {
+		for(int i=0;i<size();i++)
+			if(i!=rank(select(i)))
+				return false;
+		return true;
+	}
+
+	/* ********************	Exercise 3.2.33	**************************
+	 * selectCheck
+	 * ***************************************************************/
+	public boolean selectCheck() {
+		for(Key k: keys())
+			if(k!=select(rank(k)))
+				return false;
+		return true;
 	}
 	
 	public static void main(String[] args) {
