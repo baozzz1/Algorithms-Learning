@@ -1,6 +1,7 @@
 package Exercise_3_2_BinarySearchTree;
 
 import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
@@ -18,12 +19,15 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 		// Exercise 3.2.6 way2
 		private int height;
+		// Exercise 3.2.7 way2
+		private int totalCompares;
 
-		public Node(Key key, Value val, int N, int height) {
+		public Node(Key key, Value val, int N, int height, int totalCompares) {
 			this.key = key;
 			this.val = val;
 			this.N = N;
 			this.height = height;
+			this.totalCompares = totalCompares;
 		}
 	}
 
@@ -60,7 +64,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 	private Node put(Node x, Key key, Value val) {
 		if (x == null)
-			return new Node(key, val, 1, 1);
+			return new Node(key, val, 1, 1, 1);
 		int cmp = key.compareTo(x.key);
 		if (cmp < 0)
 			x.left = put(x.left, key, val);
@@ -69,8 +73,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 		else
 			x.val = val;
 		x.N = size(x.left) + size(x.right) + 1;
-		// Exercise 3.2.6
+		// Exercise 3.2.6 way2
 		x.height = Math.max(heightWay2(x.left), heightWay2(x.right)) + 1;
+		// Exercise 3.2.7 way2
+		x.totalCompares = totalComparesWay2(x.left) + size(x.left) 
+						+ totalComparesWay2(x.right) + size(x.right) + 1;
 		return x;
 	}
 
@@ -181,6 +188,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		x.N = size(x.left) + size(x.right) + 1;
 		// Exercise 3.2.6
 		x.height = Math.max(heightWay2(x.left), heightWay2(x.right)) + 1;
+		// Exercise 3.2.7 way2
+		x.totalCompares = totalComparesWay2(x.left) + size(x.left) 
+						+ totalComparesWay2(x.right) + size(x.right) + 1;
 		return x;
 	}
 
@@ -195,6 +205,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		x.N = size(x.left) + size(x.right) + 1;
 		// Exercise 3.2.6
 		x.height = Math.max(heightWay2(x.left), heightWay2(x.right)) + 1;
+		// Exercise 3.2.7 way2
+		x.totalCompares = totalComparesWay2(x.left) + size(x.left) 
+						+ totalComparesWay2(x.right) + size(x.right) + 1;
 		return x;
 	}
 
@@ -223,6 +236,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		x.N = size(x.left) + size(x.right) + 1;
 		// Exercise 3.2.6
 		x.height = Math.max(heightWay2(x.left), heightWay2(x.right)) + 1;
+		// Exercise 3.2.7 way2
+		x.totalCompares = totalComparesWay2(x.left) + size(x.left) 
+						+ totalComparesWay2(x.right) + size(x.right) + 1;
 		return x;
 	}
 
@@ -298,4 +314,39 @@ public class BST<Key extends Comparable<Key>, Value> {
 	 * Exercise 3.2.7 
 	 * 2. 模仿size()
 	 */
+	public double avgComparesWay2() {
+		return totalComparesWay1(root)/(double)size() + 1;
+	}
+	
+	private int totalComparesWay2(Node x) {
+		if (x == null) return 0;
+		else return x.totalCompares;
+	}
+	
+	/*
+	 * Exercise 3.2.8
+	 *  接受一个整型N，返回完美二叉树平均一次命中所需的时间
+	 */
+	public static double optCompares(int N) {
+		if (N == 0)
+			return 0.0;
+		else if (N == 1)
+			return 1.0;
+		int totalCompares = 0;
+		int height = 1;
+		int number = 1;
+		while (true) {
+			totalCompares += height * number;
+			height++;
+			number *= 2;
+			if (number > N)
+				break;
+		}
+		totalCompares -= (height - 1) * (number - 1 - N);
+		return totalCompares/(double)N;
+	}
+	
+	public static void main(String[] args) {
+		StdOut.printf("%.2f\n",optCompares((int)Math.pow(2, 30)));
+	}
 }
