@@ -1,36 +1,75 @@
 package Lesson__3_4_HashTables;
 
 import Lesson__3_1_ElementarySymbolTables.SequentialSearchST;
+import edu.princeton.cs.algs4.Queue;
 
-public class SeparateChainingHashST<Key,Value> {
-	private int N;	//键值对总数
-	private int M;	//散列表的大小
-	private SequentialSearchST<Key,Value>[] st;	//存放链表对象的数组
-	
+/**
+ * SeparateChainingHashST 
+ * Exercise 3.4.9
+ * @author baozzz1 
+ * 2018年12月20日
+ */
+public class SeparateChainingHashST<Key, Value> {
+	private int N; // 键值对总数
+	private int M; // 散列表的大小
+	private SequentialSearchST<Key, Value>[] st; // 存放链表对象的数组
+
 	public SeparateChainingHashST() {
 		this(997);
 	}
-	
+
 	public SeparateChainingHashST(int M) {
-		this.M=M;
-		st = (SequentialSearchST<Key,Value>[]) new SequentialSearchST[M];
-		for(int i=0;i<M;i++)
+		this.M = M;
+		st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
+		for (int i = 0; i < M; i++)
 			st[i] = new SequentialSearchST();
 	}
-	
+
 	private int hash(Key key) {
 		return (key.hashCode() & 0x7fffffff) % M;
 	}
-	
+
 	public Value get(Key key) {
 		return (Value) st[hash(key)].get(key);
 	}
-	
-	public void put(Key key,Value val) {
+
+	public void put(Key key, Value val) {
+		if (N >= 8 * M)
+			resize(2 * M);
 		st[hash(key)].put(key, val);
+		N++;
+	}
+
+	// Exercise 3.4.9
+	public void delete(Key key) {
+		st[hash(key)].delete(key);
+		if (N > 0 && N <= 2 * M)
+			resize(M / 2);
+	}
+
+	// Exercise 3.4.19
+	public Iterable<Key> keys() {
+		Queue<Key> q = new Queue<Key>();
+		for (int i = 0; i < M; i++)
+			for (Key k : st[i].keys())
+				q.enqueue(k);
+		return q;
+	}
+
+	private void resize(int cap) {
+		SeparateChainingHashST<Key, Value> t = new SeparateChainingHashST<Key, Value>(cap);
+		for (int i = 0; i < M; i++)
+			for (Key key : st[i].keys())
+				t.put(key, st[i].get(key));
+		st = t.st;
+		M = t.M;
 	}
 	
-//	public Iterable<Key> keys(){
-//		
-//	}
+	public static void main(String[] agrs) {
+		SeparateChainingHashST<String, Integer> schST;
+		schST = new SeparateChainingHashST<String, Integer>(4);
+		String s = "EASYQUESTION";
+		for(int i=0;i<s.length();i++)
+			schST.put((String)s.substring(i, i + 1), i);
+	}
 }

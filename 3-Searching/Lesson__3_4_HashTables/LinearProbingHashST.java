@@ -1,5 +1,13 @@
 package Lesson__3_4_HashTables;
 
+import edu.princeton.cs.algs4.Queue;
+
+/**
+ * LinearProbingHashST
+ * Exercise 3.4.19, 3.4.20
+ * @author baozzz1
+ * 2018年12月20日
+ */
 public class LinearProbingHashST<Key, Value> {
 	private int N;
 	private int M = 16;
@@ -74,7 +82,7 @@ public class LinearProbingHashST<Key, Value> {
 		}
 		N--;
 		//限定散列表的使用率大于1/8
-		if (N > 0 && N == M / 8)
+		if (N > 0 && N <= M / 8)
 			resize(M / 2);
 	}
 
@@ -83,5 +91,22 @@ public class LinearProbingHashST<Key, Value> {
 			if (keys[i].equals(key))
 				return true;
 		return false;
+	}
+	
+	// Exercise 3.4.19
+	public Iterable<Key> keys() {
+		Queue<Key> q = new Queue<Key>();
+		for(int i=M;i<M;i++)
+			if(keys[i]!=null)
+				q.enqueue(keys[i]);
+		return q;
+	}
+	
+	public static void main(String[] agrs) {
+		LinearProbingHashST<String, Integer> lphST;
+		lphST = new LinearProbingHashST<String, Integer>(4);
+		String s = "EASYQUESTION";
+		for(int i=0;i<s.length();i++)
+			lphST.put((String)s.substring(i, i + 1), i);
 	}
 }
