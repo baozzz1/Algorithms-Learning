@@ -1,4 +1,4 @@
-package Lesson__3_1_ElementarySymbolTables;
+package Lesson1_ElementarySymbolTables;
 
 import edu.princeton.cs.algs4.Queue;
 

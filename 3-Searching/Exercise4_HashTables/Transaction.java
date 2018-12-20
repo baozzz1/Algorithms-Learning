@@ -1,4 +1,4 @@
-package Exercise_3_4_HashTables;
+package Exercise4_HashTables;
 
 import edu.princeton.cs.algs4.Date;
 
@@ -11,7 +11,7 @@ public class Transaction {
 	private final String who;
 	private final Date when;
 	private final double amount;
-	private int hash = 0;
+	private int hash = -1;
 
 	public Transaction(String who, Date when, double amount) {
 		this.who = who;
@@ -20,7 +20,7 @@ public class Transaction {
 	}
 
 	public int hashCode() {
-		if (hash != 0)
+		if (hash != -1)
 			return hash;
 		int hash = 17;
 		hash = 31 * hash + who.hashCode();

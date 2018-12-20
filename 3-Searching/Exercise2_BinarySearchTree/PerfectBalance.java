@@ -1,6 +1,6 @@
-package Exercise_3_2_BinarySearchTree;
+package Exercise2_BinarySearchTree;
 
-import Lesson__3_2_BinarySearchTree.BST;
+import Lesson2_BinarySearchTree.BST;
 import Lesson__2_3_QuickSort.Quick;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;

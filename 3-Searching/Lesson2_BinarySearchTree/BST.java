@@ -1,4 +1,4 @@
-package Lesson__3_2_BinarySearchTree;
+package Lesson2_BinarySearchTree;
 
 import edu.princeton.cs.algs4.Queue;
 

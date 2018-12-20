@@ -1,4 +1,4 @@
-package Lesson__3_4_HashTables;
+package Lesson4_HashTables;
 
 import edu.princeton.cs.algs4.Queue;
 
@@ -9,10 +9,10 @@ import edu.princeton.cs.algs4.Queue;
  * 2018年12月20日
  */
 public class LinearProbingHashST<Key, Value> {
-	private int N;
-	private int M = 16;
-	private Key[] keys;
-	private Value[] vals;
+	protected int N;
+	protected int M = 16;
+	protected Key[] keys;
+	protected Value[] vals;
 
 	public LinearProbingHashST() {
 		keys = (Key[]) new Object[M];
@@ -91,15 +91,6 @@ public class LinearProbingHashST<Key, Value> {
 			if (keys[i].equals(key))
 				return true;
 		return false;
-	}
-	
-	// Exercise 3.4.19
-	public Iterable<Key> keys() {
-		Queue<Key> q = new Queue<Key>();
-		for(int i=M;i<M;i++)
-			if(keys[i]!=null)
-				q.enqueue(keys[i]);
-		return q;
 	}
 	
 	public static void main(String[] agrs) {

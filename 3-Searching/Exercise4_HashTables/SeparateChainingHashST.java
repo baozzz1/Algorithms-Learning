@@ -1,4 +1,4 @@
-package Exercise_3_4_HashTables;
+package Exercise4_HashTables;
 
 import edu.princeton.cs.algs4.Queue;
 

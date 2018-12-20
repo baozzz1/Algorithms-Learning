@@ -1,4 +1,4 @@
-package Lesson__3_3_BanlancedSearchTrees;
+package Lesson3_BanlancedSearchTrees;
 
 import edu.princeton.cs.algs4.Queue;
 

@@ -1,4 +1,4 @@
-package Exercise_3_1_ElementarySymbolTables;
+package Exercise1_ElementarySymbolTables;
 
 import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdIn;

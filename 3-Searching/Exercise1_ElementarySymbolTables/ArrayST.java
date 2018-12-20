@@ -1,4 +1,4 @@
-package Exercise_3_1_ElementarySymbolTables;
+package Exercise1_ElementarySymbolTables;
 /**
  * Exercise 3.1.2
  * @author baozzz1

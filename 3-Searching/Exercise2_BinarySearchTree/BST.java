@@ -1,4 +1,4 @@
-package Exercise_3_2_BinarySearchTree;
+package Exercise2_BinarySearchTree;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.Queue;

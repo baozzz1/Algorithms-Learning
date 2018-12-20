@@ -1,6 +1,6 @@
-package Lesson__3_4_HashTables;
+package Lesson4_HashTables;
 
-import Lesson__3_1_ElementarySymbolTables.SequentialSearchST;
+import Lesson1_ElementarySymbolTables.SequentialSearchST;
 import edu.princeton.cs.algs4.Queue;
 
 /**
@@ -10,9 +10,9 @@ import edu.princeton.cs.algs4.Queue;
  * 2018年12月20日
  */
 public class SeparateChainingHashST<Key, Value> {
-	private int N; // 键值对总数
-	private int M; // 散列表的大小
-	private SequentialSearchST<Key, Value>[] st; // 存放链表对象的数组
+	protected int N; // 键值对总数
+	protected int M; // 散列表的大小
+	protected SequentialSearchST<Key, Value>[] st; // 存放链表对象的数组
 
 	public SeparateChainingHashST() {
 		this(997);
@@ -45,15 +45,6 @@ public class SeparateChainingHashST<Key, Value> {
 		st[hash(key)].delete(key);
 		if (N > 0 && N <= 2 * M)
 			resize(M / 2);
-	}
-
-	// Exercise 3.4.19
-	public Iterable<Key> keys() {
-		Queue<Key> q = new Queue<Key>();
-		for (int i = 0; i < M; i++)
-			for (Key k : st[i].keys())
-				q.enqueue(k);
-		return q;
 	}
 
 	private void resize(int cap) {
