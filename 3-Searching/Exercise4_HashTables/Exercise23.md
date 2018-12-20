@@ -1,4 +1,4 @@
-###3.4.23
+### 3.4.23
 Since R is 256, and M is 255, everytime<br>
 `hash = (R * hash + key.hashCode()) % M` is the same as <br>
 `hash = (hash + key.hashCode()) % M`.<br>
