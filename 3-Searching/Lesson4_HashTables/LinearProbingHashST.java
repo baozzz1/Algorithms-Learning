@@ -1,16 +1,13 @@
 package Lesson4_HashTables;
 
-import edu.princeton.cs.algs4.Queue;
-
 /**
  * LinearProbingHashST
- * Exercise 3.4.19, 3.4.20
  * @author baozzz1
  * 2018年12月20日
  */
 public class LinearProbingHashST<Key, Value> {
 	protected int N;
-	protected int M = 16;
+	protected int M = 31;
 	protected Key[] keys;
 	protected Value[] vals;
 
@@ -25,12 +22,12 @@ public class LinearProbingHashST<Key, Value> {
 		vals = (Value[]) new Object[M];
 	}
 
-	private int hash(Key key) {
+	protected int hash(Key key) {
 		return (key.hashCode() & 0x7fffffff) % M;
 	}
 
 	// 3.4.4
-	private void resize(int cap) {
+	protected void resize(int cap) {
 		LinearProbingHashST<Key, Value> t = new LinearProbingHashST<Key, Value>(cap);
 		for (int i = 0; i < M; i++)
 			if (keys[i] != null)

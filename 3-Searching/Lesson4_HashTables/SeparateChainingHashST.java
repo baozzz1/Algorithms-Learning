@@ -4,7 +4,7 @@ import Lesson1_ElementarySymbolTables.SequentialSearchST;
 import edu.princeton.cs.algs4.Queue;
 
 /**
- * SeparateChainingHashST 
+ * SeparateChainingHashST <br>
  * Exercise 3.4.9
  * @author baozzz1 
  * 2018年12月20日
@@ -13,9 +13,10 @@ public class SeparateChainingHashST<Key, Value> {
 	protected int N; // 键值对总数
 	protected int M; // 散列表的大小
 	protected SequentialSearchST<Key, Value>[] st; // 存放链表对象的数组
-
+	protected static final int DEFAULT_HASH_TABLE_SIZE =997;
+	
 	public SeparateChainingHashST() {
-		this(997);
+		this(DEFAULT_HASH_TABLE_SIZE);
 	}
 
 	public SeparateChainingHashST(int M) {
@@ -36,13 +37,15 @@ public class SeparateChainingHashST<Key, Value> {
 	public void put(Key key, Value val) {
 		if (N >= 8 * M)
 			resize(2 * M);
+		if(!contains(key))
+			N++;
 		st[hash(key)].put(key, val);
-		N++;
 	}
 
 	// Exercise 3.4.9
 	public void delete(Key key) {
 		st[hash(key)].delete(key);
+		N--;
 		if (N > 0 && N <= 2 * M)
 			resize(M / 2);
 	}
@@ -54,6 +57,10 @@ public class SeparateChainingHashST<Key, Value> {
 				t.put(key, st[i].get(key));
 		st = t.st;
 		M = t.M;
+	}
+	
+	protected boolean contains(Key key) {
+		return get(key) !=null;
 	}
 	
 	public static void main(String[] agrs) {

@@ -1,5 +1,10 @@
 package Exercise4_HashTables;
 
+/**
+ * Exercise 3.4.22
+ * @author baozzz1
+ * 2018年12月21日
+ */
 public class Exercise22 {
 	private static final int HASH_TABLE_SIZE = 997;
 
