@@ -9,6 +9,7 @@ import edu.princeton.cs.algs4.Date;
  */
 public class Exercise25_HashTableWithCache {
 	private static int hashTableSize = 997;
+
 	private class Transaction {
 		private final String who;
 		private final Date when;

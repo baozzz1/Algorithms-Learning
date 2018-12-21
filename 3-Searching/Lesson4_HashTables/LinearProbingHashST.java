@@ -2,7 +2,7 @@ package Lesson4_HashTables;
 
 /**
  * LinearProbingHashST
- * @author baozzz1
+ * @author baozzz1 
  * 2018年12月20日
  */
 public class LinearProbingHashST<Key, Value> {
@@ -18,6 +18,7 @@ public class LinearProbingHashST<Key, Value> {
 
 	public LinearProbingHashST(int cap) {
 		M = cap;
+		N = 0;
 		keys = (Key[]) new Object[M];
 		vals = (Value[]) new Object[M];
 	}
@@ -38,7 +39,7 @@ public class LinearProbingHashST<Key, Value> {
 	}
 
 	public void put(Key key, Value val) {
-		//限定散列表的使用率小于1/2
+		// 限定散列表的使用率小于1/2
 		if (N >= M / 2)
 			resize(2 * M);
 		int i;
@@ -78,7 +79,7 @@ public class LinearProbingHashST<Key, Value> {
 			i = (i + 1) % M;
 		}
 		N--;
-		//限定散列表的使用率大于1/8
+		// 限定散列表的使用率大于1/8
 		if (N > 0 && N <= M / 8)
 			resize(M / 2);
 	}
@@ -89,12 +90,12 @@ public class LinearProbingHashST<Key, Value> {
 				return true;
 		return false;
 	}
-	
+
 	public static void main(String[] agrs) {
 		LinearProbingHashST<String, Integer> lphST;
 		lphST = new LinearProbingHashST<String, Integer>(4);
 		String s = "EASYQUESTION";
-		for(int i=0;i<s.length();i++)
-			lphST.put((String)s.substring(i, i + 1), i);
+		for (int i = 0; i < s.length(); i++)
+			lphST.put((String) s.substring(i, i + 1), i);
 	}
 }

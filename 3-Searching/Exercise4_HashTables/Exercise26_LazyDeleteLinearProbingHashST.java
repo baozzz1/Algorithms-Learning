@@ -3,7 +3,8 @@ package Exercise4_HashTables;
 import Lesson4_HashTables.LinearProbingHashST;
 
 /**
- * Exercise 3.4.26 LazyDeleteLinearProbingHashST
+ * Exercise 3.4.26 
+ * LazyDeleteLinearProbingHashST
  * @author baozzz1 
  * 2018年12月21日
  */

@@ -47,44 +47,28 @@ public class SequentialSearchST<Key, Value> {
 
 	// Exercise 3.1.5
 	public void delete(Key key) {
-		/*for (Node x = first; x != null; x = x.next)
-			if (key.equals(x.key)) {
-				// if x is the first node
-				if (x == first) {
-					// if x is the first and the last node
-					if (x.next == null) {
-						first.val = null;
-						first.next = null;
-						first = null;
-					} else {
-						first.val = null;
-						first = new Node(first.next.key, first.next.val, first.next.next);
-					}
-				} else if (x.next == null) {
-					x.val = null;
-					x = null;
-				} else {
-					x.key = x.next.key;
-					x.val = x.next.val;
-					x = x.next;
-					x.next = x.next.next;
-				}
+		/*
+		 * for (Node x = first; x != null; x = x.next) if (key.equals(x.key)) { // if x
+		 * is the first node if (x == first) { // if x is the first and the last node if
+		 * (x.next == null) { first.val = null; first.next = null; first = null; } else
+		 * { first.val = null; first = new Node(first.next.key, first.next.val,
+		 * first.next.next); } } else if (x.next == null) { x.val = null; x = null; }
+		 * else { x.key = x.next.key; x.val = x.next.val; x = x.next; x.next =
+		 * x.next.next; } N--; return; }
+		 */
+		if (first.key.equals(key)) {
+			first = first.next;
+			N--;
+			return;
+		}
+
+		for (Node node = first; node != null; node = node.next) {
+			if (node.next != null && node.next.key.equals(key)) {
+				node.next = node.next.next;
 				N--;
 				return;
-			}*/
-		if (first.key.equals(key)) {
-            first = first.next;
-            N--;
-            return;
-        }
-
-        for(Node node = first; node != null; node = node.next) {
-            if (node.next != null && node.next.key.equals(key)) {
-                node.next = node.next.next;
-                N--;
-                return;
-            }
-        }
+			}
+		}
 	}
 
 	// Exercise 3.1.5

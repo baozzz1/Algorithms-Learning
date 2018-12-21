@@ -19,8 +19,8 @@ public class Exercise19 {
 			return q;
 		}
 	}
-	
-	private class SeparateChainingHashSTWithKeys<Key, Value> extends SeparateChainingHashST<Key, Value>{
+
+	private class SeparateChainingHashSTWithKeys<Key, Value> extends SeparateChainingHashST<Key, Value> {
 		public Iterable<Key> keys() {
 			Queue<Key> q = new Queue<Key>();
 			for (int i = 0; i < M; i++)
