@@ -144,72 +144,446 @@ public class Exercise28and29_DoubleSeparate {
 }
 
 /***********************************
- * Insert process: Step 1: 0: {E(0,7), 0} 1: null 2: null 3: null 4: null 5:
- * null 6: null 7: null 8: null 9: null 10: null Step 2: 0: {E(0,7), 0} 1: null
- * 2: null 3: null 4: null 5: {A(0,5), 1} 6: null 7: null 8: null 9: null 10:
- * null Step 3: 0: {E(0,7), 0} 1: null 2: null 3: {S(0,3), 2} 4: null 5:
- * {A(0,5), 1} 6: null 7: null 8: null 9: null 10: null Step 4: 0: {E(0,7), 0}
- * 1: null 2: null 3: {S(0,3), 2} 4: null 5: {A(0,5), 1} 6: {Y(0,6), 3} 7: null
- * 8: null 9: null 10: null Step 5: 0: {E(0,7), 0} 1: null 2: {Q(0,2), 4} 3:
- * {S(0,3), 2} 4: null 5: {A(0,5), 1} 6: {Y(0,6), 3} 7: null 8: null 9: null 10:
- * null Step 6: 0: null 1: null 2: {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5:
- * null 6: {Y(11,17), 3} 7: null 8: null 9: null 10: null 11: {E(11,7), 0} 12:
- * null 13: null 14: {S(11,3), 2} 15: null 16: {A(11,5), 1} 17: null 18: null
- * 19: null 20: null 21: null Step 7: 0: null 1: null 2: {Q(11,13), 4} 3: null
- * 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7: null 8: null 9: null 10: null
- * 11: {E(11,7), 6} 12: null 13: null 14: {S(11,3), 2} 15: null 16: {A(11,5), 1}
- * 17: null 18: null 19: null 20: null 21: null Step 8: 0: null 1: null 2:
- * {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7: null 8:
- * null 9: null 10: null 11: {E(11,7), 6} 12: null 13: null 14: {S(11,3), 7} 15:
- * null 16: {A(11,5), 1} 17: null 18: null 19: null 20: null 21: null Step 9: 0:
- * {T(0,20), 8} 1: null 2: {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5: null 6:
- * {Y(11,17), 3} 7: null 8: null 9: null 10: null 11: {E(11,7), 6} 12: null 13:
- * null 14: {S(11,3), 7} 15: null 16: {A(11,5), 1} 17: null 18: null 19: null
- * 20: null 21: null Step 10: 0: {T(0,20), 8} 1: null 2: {Q(11,13), 4} 3: null
- * 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7: null 8: null 9: null 10: null
- * 11: {E(11,7), 6} 12: null 13: null 14: {S(11,3), 7} 15: null 16: {A(11,5), 1}
- * 17: null 18: null 19: null 20: {I(11,9), 9} 21: null Step 11: 0: {T(0,20), 8}
- * 1: null 2: {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7:
- * null 8: null 9: null 10: null 11: {E(11,7), 6} 12: {O(11,1), 10} 13: null 14:
- * {S(11,3), 7} 15: null 16: {A(11,5), 1} 17: null 18: null 19: null 20:
- * {I(11,9), 9} 21: null Step 12: 0: {T(0,20), 8} 1: null 2: {Q(11,13), 4} 3:
- * null 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7: null 8: null 9: null 10:
- * null 11: {E(11,7), 6} 12: {O(11,1), 10} 13: null 14: {S(11,3), 7} 15: null
- * 16: {A(11,5), 1} 17: null 18: {N(0,6), 11} 19: null 20: {I(11,9), 9} 21: null
- * 
- * Delete process: Step 1: 0: {T(0,20), 8} 1: null 2: {Q(11,13), 4} 3: null 4:
- * {U(11,15), 5} 5: null 6: {Y(11,17), 3} 7: null 8: null 9: null 10: null 11:
- * {E(11,7), null} 12: {O(11,1), 10} 13: null 14: {S(11,3), 7} 15: null 16:
- * {A(11,5), 1} 17: null 18: {N(0,6), 11} 19: null 20: {I(11,9), 9} 21: null
- * Step 2: 0: {T(0,20), 8} 1: null 2: {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5:
- * null 6: {Y(11,17), 3} 7: null 8: null 9: null 10: null 11: {E(11,7), null}
- * 12: {O(11,1), 10} 13: null 14: {S(11,3), 7} 15: null 16: {A(11,5), null} 17:
- * null 18: {N(0,6), 11} 19: null 20: {I(11,9), 9} 21: null Step 3: 0: {T(0,20),
- * 8} 1: null 2: {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5: null 6: {Y(11,17), 3}
- * 7: null 8: null 9: null 10: null 11: {E(11,7), null} 12: {O(11,1), 10} 13:
- * null 14: {S(11,3), null} 15: null 16: {A(11,5), null} 17: null 18: {N(0,6),
- * 11} 19: null 20: {I(11,9), 9} 21: null Step 4: 0: {T(0,20), 8} 1: null 2:
- * {Q(11,13), 4} 3: null 4: {U(11,15), 5} 5: null 6: {Y(11,17), null} 7: null 8:
- * null 9: null 10: null 11: {E(11,7), null} 12: {O(11,1), 10} 13: null 14:
- * {S(11,3), null} 15: null 16: {A(11,5), null} 17: null 18: {N(0,6), 11} 19:
- * null 20: {I(11,9), 9} 21: null Step 5: 0: {T(0,20), 8} 1: null 2: {Q(11,13),
- * null} 3: null 4: {U(11,15), 5} 5: null 6: {Y(11,17), null} 7: null 8: null 9:
- * null 10: null 11: {E(11,7), null} 12: {O(11,1), 10} 13: null 14: {S(11,3),
- * null} 15: null 16: {A(11,5), null} 17: null 18: {N(0,6), 11} 19: null 20:
- * {I(11,9), 9} 21: null Step 6: 0: {T(0,20), 8} 1: null 2: {Q(11,13), null} 3:
- * null 4: {U(11,15), null} 5: null 6: {Y(11,17), null} 7: null 8: null 9: null
- * 10: null 11: {E(11,7), null} 12: {O(11,1), 10} 13: null 14: {S(11,3), null}
- * 15: null 16: {A(11,5), null} 17: null 18: {N(0,6), 11} 19: null 20: {I(11,9),
- * 9} 21: null Step 7: 0: {T(0,20), 8} 1: null 2: {Q(11,13), null} 3: null 4:
- * {U(11,15), null} 5: null 6: {Y(11,17), null} 7: null 8: null 9: null 10: null
- * 11: {E(11,7), null} 12: {O(11,1), 10} 13: null 14: {S(11,3), null} 15: null
- * 16: {A(11,5), null} 17: null 18: {N(0,6), 11} 19: null 20: {I(11,9), 9} 21:
- * null Step 8: 0: {T(0,9), 8} 1: {O(0,1), 10} 2: null 3: null 4: null 5: null
- * 6: {N(0,6), 11} 7: null 8: null 9: {I(0,9), 9} 10: null Step 9: 0: null 1:
- * null 2: null 3: {I(3,1), 9} 4: null 5: null 6: null 7: null 8: {N(8,6), 11}
- * 9: {O(9,3), 10} Step 10: 0: null 1: null 2: null 3: {I(3,1), null} 4: null 5:
- * null 6: null 7: null 8: {N(8,6), 11} 9: {O(9,3), 10} Step 11: 0: null 1: null
- * 2: null 3: {I(3,1), null} 4: null 5: null 6: null 7: null 8: {N(8,6), 11} 9:
- * {O(9,3), null} Step 12: 0: null 1: null 2: null 3: {I(3,1), null} 4: null 5:
- * null 6: null 7: null 8: {N(8,6), null} 9: {O(9,3), null}
+ Insert process:
+Step 1: 
+  0: {E(0,7), 0} 
+  1: null
+  2: null
+  3: null
+  4: null
+  5: null
+  6: null
+  7: null
+  8: null
+  9: null
+  10: null
+Step 2: 
+  0: {E(0,7), 0} 
+  1: null
+  2: null
+  3: null
+  4: null
+  5: {A(0,5), 1} 
+  6: null
+  7: null
+  8: null
+  9: null
+  10: null
+Step 3: 
+  0: {E(0,7), 0} 
+  1: null
+  2: null
+  3: {S(0,3), 2} 
+  4: null
+  5: {A(0,5), 1} 
+  6: null
+  7: null
+  8: null
+  9: null
+  10: null
+Step 4: 
+  0: {E(0,7), 0} 
+  1: null
+  2: null
+  3: {S(0,3), 2} 
+  4: null
+  5: {A(0,5), 1} 
+  6: {Y(0,6), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+Step 5: 
+  0: {E(0,7), 0} 
+  1: null
+  2: {Q(0,2), 4} 
+  3: {S(0,3), 2} 
+  4: null
+  5: {A(0,5), 1} 
+  6: {Y(0,6), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+Step 6: 
+  0: null
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 0} 
+  12: null
+  13: null
+  14: {S(11,3), 2} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: null
+  21: null
+Step 7: 
+  0: null
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: null
+  13: null
+  14: {S(11,3), 2} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: null
+  21: null
+Step 8: 
+  0: null
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: null
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: null
+  21: null
+Step 9: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: null
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: null
+  21: null
+Step 10: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: null
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 11: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: null
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 12: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), 6} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+
+Delete process:
+Step 1: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), 1} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 2: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), 7} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 3: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), 3} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), null} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 4: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), 4} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), null} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), null} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 5: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), null} 
+  3: null
+  4: {U(11,15), 5} 
+  5: null
+  6: {Y(11,17), null} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), null} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 6: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), null} 
+  3: null
+  4: {U(11,15), null} 
+  5: null
+  6: {Y(11,17), null} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), null} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 7: 
+  0: {T(0,20), 8} 
+  1: null
+  2: {Q(11,13), null} 
+  3: null
+  4: {U(11,15), null} 
+  5: null
+  6: {Y(11,17), null} 
+  7: null
+  8: null
+  9: null
+  10: null
+  11: {E(11,7), null} 
+  12: {O(11,1), 10} 
+  13: null
+  14: {S(11,3), null} 
+  15: null
+  16: {A(11,5), null} 
+  17: null
+  18: {N(0,6), 11} 
+  19: null
+  20: {I(11,9), 9} 
+  21: null
+Step 8: 
+  0: {T(0,9), 8} 
+  1: {O(0,1), 10} 
+  2: null
+  3: null
+  4: null
+  5: null
+  6: {N(0,6), 11} 
+  7: null
+  8: null
+  9: {I(0,9), 9} 
+  10: null
+Step 9: 
+  0: null
+  1: null
+  2: null
+  3: {I(3,1), 9} 
+  4: null
+  5: null
+  6: null
+  7: null
+  8: {N(8,6), 11} 
+  9: {O(9,3), 10} 
+Step 10: 
+  0: null
+  1: null
+  2: null
+  3: {I(3,1), null} 
+  4: null
+  5: null
+  6: null
+  7: null
+  8: {N(8,6), 11} 
+  9: {O(9,3), 10} 
+Step 11: 
+  0: null
+  1: null
+  2: null
+  3: {I(3,1), null} 
+  4: null
+  5: null
+  6: null
+  7: null
+  8: {N(8,6), 11} 
+  9: {O(9,3), null} 
+Step 12: 
+  0: null
+  1: null
+  2: null
+  3: {I(3,1), null} 
+  4: null
+  5: null
+  6: null
+  7: null
+  8: {N(8,6), null} 
+  9: {O(9,3), null} 
+
  *********************************/

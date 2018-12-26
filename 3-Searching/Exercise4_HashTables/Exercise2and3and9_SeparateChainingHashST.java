@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.Queue;
  * @author baozzz1 
  * 2018年12月20日
  */
-public class SeparateChainingHashST<Key, Value> {
+public class Exercise2and3and9_SeparateChainingHashST<Key, Value> {
 	private int N; // 键值对总数
 	private int M; // 散列表的大小
 	private Node[] listsFirst;
@@ -30,11 +30,11 @@ public class SeparateChainingHashST<Key, Value> {
 		}
 	}
 
-	public SeparateChainingHashST() {
+	public Exercise2and3and9_SeparateChainingHashST() {
 		this(997);
 	}
 
-	public SeparateChainingHashST(int M) {
+	public Exercise2and3and9_SeparateChainingHashST(int M) {
 		this.M = M;
 		listsFirst = (Node[]) new Object[M];
 		listsN = (int[]) new int[M];
